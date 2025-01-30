@@ -1,0 +1,27 @@
+{
+    "bindings": [
+        {
+            "type": "eventHubTrigger",
+            "name": "eventHubMessages",
+            "direction": "in",
+            "eventHubName": "plant_messages",
+            "connection": "IoTHubConnection",
+            "cardinality": "many",
+            "consumerGroup": "$Default"
+        },
+        {
+            "type": "table",
+            "name": "outputTable",
+            "tableName": "plantdata",
+            "connection": "AzureWebJobsStorage",
+            "direction": "out"
+        },
+        {
+            "type": "queue",
+            "name": "outputQueueItem",
+            "queueName": "plantalerts",
+            "connection": "AzureWebJobsStorage",
+            "direction": "out"
+        }
+    ]
+}
